@@ -1,3 +1,5 @@
+
+
 let cash = 10000;
 let curCash = document.querySelector('.cur__cash');
 curCash.textContent = `your current cash: ${cash}`;
@@ -73,6 +75,9 @@ let phoneBtn = document.getElementById('phones').addEventListener('click', ()=>{
 let laptopBtn = document.getElementById('laptops').addEventListener('click', ()=>{
     showItems(laptopList, LIST_ITEMS);
 });
+let showAll = document.getElementById('all').addEventListener('click', ()=>{
+    showItems(allItems, LIST_ITEMS);
+});
 
 
 
@@ -102,14 +107,12 @@ saleBtn.addEventListener('click', (e)=>{
                         title: allItems[i].title,
                         quantity: saleQuant.value
                     }
-                    
                     boughtItems.push(userItem);
                     let userItems = document.querySelector('.user__items');
                     const USER_ITEMS = document.createElement('ul');
                     userItems.appendChild(USER_ITEMS);
                     showItems(boughtItems, USER_ITEMS);
-                   
-               
+                
                 }else{
                     alert(`У вас не доастаточно средств: текущий баланс равен: ${cash}`)
                 }
