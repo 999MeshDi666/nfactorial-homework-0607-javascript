@@ -2,143 +2,19 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.797);
+    color: #fff;
     box-sizing: border-box;
 }
-.block{
-    width: 200px;
-    height: 150px;
-    border: 1px solid #000;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    transform: rotate3d(1, 1, 1, 120deg);
-}
-.block_animation{
-    animation-name: block_rotate;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards; 
-}
-@keyframes block_rotate{
-    0%{
-        transform: rotate3d(1, 1, 1, 120deg);
-    }
-    100%{
-        transform: rotate3d(1, 1, 1, 0deg);
-    }
-    
-}
-.person__head{
-    border-radius: 40%;
-    width: 100px;
-    height: 120px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    background-color:#f1d774;
-}
-.person__eyes{
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-  
-}
-.person__eye{
-    border-radius: 0px 0px;
-    border: 1px solid #000;
-    margin: 0 10px;
-    width: 25px;
-    height: 25px;
-    padding: 2px;
-    box-sizing: border-box;
-    background-color: #fff;
-    position: relative;
+ul,li{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.person__eye_animation{
-    animation-name: eyes_shape;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    
-}
-@keyframes eyes_shape {
-    0%{
-        border-radius: 0px 0px;
-    }
-    50%{
-        border-radius: 0px 25px;
-    }
-    100%{
-        border-radius: 0px 0px;
-    }
-    
-}
-.person__pupils{
-    display: block;
-    border-radius: 50%;
-    margin: 5px;
-    width: 8px;
-    height: 8px;
-    background-color: rgb(0, 0, 0);
-}
-.person__mouth{
-    border-radius: 0px 0px 0px 0px;
-    border: 1px solid #000;
-    width: 50px;
-    height: 20px;
-    margin-top: 30px;
-    background-color: #fff;
-}
-.person__mouth_animation{
-    animation-name: mouth_shape;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    
-}
-@keyframes mouth_shape {
-    0%{
-        border-radius:0px 0px 0px 0px;
-    }
-    50%{
-        border-radius: 0px 0px 20px 20px;
-    }
-    
-    100%{
-        border-radius:0px 0px 0px 0px;
-    }
-    
-}
-.person__body{
-    width: 100px;
-    height: 200px;
-    border: 1px solid #000;
-    border-radius: 15px 15px 0 0;
-    background-color: rgb(24, 38, 130);
-
-}
-.form__fieldset{
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.form__label{
-    display: block;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    padding: 6px;
-    margin: 5px;
-    text-align: center;
-    font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.692);
+.nav__link{
+    margin: 15px 0;
     cursor: pointer;
 }
-.form__label:hover{
-    background-color: rgba(255, 255, 255, 0.529);
-}
-.form__checkbox{
-    /* visibility: hidden; */
-}
-.form__submit{
-    
-    border-radius: 0;
+.nav__link:hover{
+    color: rgba(255, 255, 255, 0.67);
 }
