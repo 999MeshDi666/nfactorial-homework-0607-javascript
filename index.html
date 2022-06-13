@@ -17,23 +17,21 @@
         <div class="cashInput d-flex">
           <input type="text" class="form-control w-25" placeholder="пополнить баланс" id="balance-input" >
           <button class="btn btn-success ms-3" id="balance-submit">Пополнить</button>
-          <button type="button" class="btn btn-primary mx-2" id="show-bought" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-primary mx-2" id="show-bought" data-bs-toggle="modal" data-bs-target="#boughtModal">
             Купленные предметы
           </button>
 
-          <div class="modal fade text-black" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade text-black" id="boughtModal" tabindex="-1" aria-labelledby="boughtModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Мои товары</h5>
+                  <h5 class="modal-title" id="boughtModalLabel">Мои товары</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bought-list">
-                 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -47,31 +45,35 @@
             <input type="text" class="form-control w-25" placeholder="поиск phone или laptop" id="search-input" >
             <button class="btn btn-success ms-3" id="search-submit">Поиск</button>
             <button class="btn btn-success ms-3" id="show-submit">Показать все товары</button>
+            <button type="button" class="btn btn-primary mx-2" id="show-desired" data-bs-toggle="modal" data-bs-target="#desiredModal">
+              Желаемые товаре
+            </button>
+            <div class="modal fade text-black" id="desiredModal" tabindex="-1" aria-labelledby="desiredModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="desiredModalLabel">Желаемое</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body desired-list">
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-         
         </div>
         <div class="cards d-flex justify-content-evenly flex-wrap" id="cards">
             
            
           
         </div>
-
     </div>
-   
-
     <script src="./js/main.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
-<!-- <div class="card" style="width: 18rem;" id="shop-card">
-              <img src="./images/laptop1.png" class="card-img-top card-img" alt="..." id="shop-img">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-primary mx-1">В корзину</a>
-                <button class="btn btn-success mx-1">Купить</a>
-              </div>
-            </div> -->

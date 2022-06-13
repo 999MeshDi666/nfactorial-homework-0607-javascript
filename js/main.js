@@ -162,6 +162,35 @@ let techList = [
 ]
 
 let boughtList = [];
+let desiredList = [];
+
+function buyItems(el, arr){
+    el.forEach((e)=>{
+        e.addEventListener('click',()=>{
+            console.log("btn"+e.value);
+            if(cash >= arr[e.value].price){
+                cash = cash - arr[e.value].price;
+                curBalance.innerHTML = cash;
+                alert('Оплата прошла успешно');
+                boughtList.push(arr[e.value].title);
+                console.log(boughtList);
+            }else{
+                alert('У вас не достаточно средств на балансе')
+            } 
+        })
+    })
+}
+
+function desireItems(el, arr){
+    el.forEach((e)=>{
+        e.addEventListener('click',()=>{
+            console.log("btn"+e.value);
+            desiredList.push(arr[e.value].title);
+            console.log(desiredList);
+        })
+    })
+}
+
 
 
 let cards = document.getElementById('cards');
@@ -204,8 +233,9 @@ function renderItems(arr){
         shopCardSucBtn.textContent = 'Купить';
         shopCardSucBtn.value = i;
     
-        shopCardPrimBtn.className = "btn btn-primary mx-1";
+        shopCardPrimBtn.className = "btn btn-primary mx-1 desired";
         shopCardPrimBtn.textContent = 'В корзину';
+        shopCardPrimBtn.value = i;
         
         shopCardFooter.appendChild(shopCardPrimBtn);
         shopCardFooter.appendChild(shopCardSucBtn);
@@ -229,23 +259,9 @@ function renderItems(arr){
 
     }
     let buy = document.querySelectorAll('.buy-btn');
-    buy.forEach((e)=>{
-        e.addEventListener('click',()=>{
-            console.log("btn"+e.value);
-            if(cash >= arr[e.value].price){
-                cash = cash - arr[e.value].price;
-                curBalance.innerHTML = cash;
-                alert('Оплата прошла успешно');
-                boughtList.push(arr[e.value].title);
-                console.log(boughtList);
-                
-            }else{
-                alert('У вас не достаточно средств на балансе')
-            }
-           
-            
-        })
-    })
+    let desired = document.querySelectorAll('.desired');
+    buyItems(buy, arr);
+    desireItems(desired, arr);
 
 }
 
@@ -269,10 +285,21 @@ searchBtn.addEventListener('click',()=>{
     }
 })
 
+
+function showList(listener,list, arr){
+    listener.addEventListener('click', ()=>{
+        list.textContent = `${arr}`;
+    
+    })
+    
+}
 let showBoughtItems = document.getElementById('show-bought');
 let boughtItems = document.querySelector('.bought-list');
-showBoughtItems.addEventListener('click', ()=>{
-    boughtItems.textContent = `${boughtList}`;
+showList(showBoughtItems,boughtItems,boughtList);
 
-})
+let showDesiredItems = document.getElementById('show-desired');
+let desiredItems = document.querySelector('.desired-list');
+showList(showDesiredItems,desiredItems,desiredList);
+
+
 
