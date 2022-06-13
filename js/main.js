@@ -201,14 +201,16 @@ function renderItems(arr){
     
         shopCardFooter.className = "card-footer";
     
-        shopCardSucBtn.className = "btn btn-success mx-1";
+        shopCardSucBtn.className = "btn btn-success mx-1 buy-btn";
         shopCardSucBtn.textContent = 'Купить';
+        shopCardSucBtn.value = i;
     
         shopCardPrimBtn.className = "btn btn-primary mx-1";
         shopCardPrimBtn.textContent = 'В корзину';
         
         shopCardFooter.appendChild(shopCardPrimBtn);
         shopCardFooter.appendChild(shopCardSucBtn);
+        
     
         shopCardBody.appendChild(shopCardTitle);
         shopCardBody.appendChild(shopCardSubTitle);
@@ -224,14 +226,37 @@ function renderItems(arr){
     
         shopCardImg.src = arr[i].img;
         
-        cards.appendChild(shopCard)
-    
+        cards.appendChild(shopCard);
+
     }
+    let buy = document.querySelectorAll('.buy-btn');
+    buy.forEach((e)=>{
+        e.addEventListener('click',()=>{
+            console.log("btn"+e.value);
+            if(cash >= arr[e.value].price){
+                cash = cash - arr[e.value].price;
+                curBalance.innerHTML = cash;
+                alert('Оплата прошла успешно')
+            }else{
+                alert('У вас не достаточно средств на балансе')
+            }
+            
+            
+
+        })
+    })
+
 
 }
 
 let searchBtn = document.getElementById('search-submit');
 let searchInput = document.getElementById('search-input');
+let showBtn = document.getElementById('show-submit');
+showBtn.addEventListener('click', ()=>{
+    renderItems([])
+    renderItems(techList);
+
+})
 searchBtn.addEventListener('click',()=>{
     console.log('searchBtn', searchInput.value)
     if(searchInput.value == 'laptop'){
@@ -242,9 +267,6 @@ searchBtn.addEventListener('click',()=>{
         renderItems([])
         renderItems(phoneList);
     }
-    else{
-        renderItems([])
-        renderItems(techList);
-    }
 })
+
 
