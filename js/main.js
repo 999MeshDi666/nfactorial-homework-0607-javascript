@@ -1,130 +1,250 @@
+let curBalance = document.querySelector('.current-balance');
+let cash = 1000;
+curBalance.innerHTML = cash
+
+let balanceSubmit = document.getElementById('balance-submit');
+let balanceInput = document.getElementById('balance-input');
+balanceSubmit.addEventListener('click', ()=>{
+    cash = cash + parseInt(balanceInput.value);
+    curBalance.innerHTML = cash;
+
+});
 
 
-let cash = 10000;
-let curCash = document.querySelector('.cur__cash');
-curCash.textContent = `your current cash: ${cash}`;
-
-
-let phoneList = []
-let iphone = {
-    title: 'iphoneX',
-    price: 800
-}
-let xiaomi = {
-    title: 'xiaomi redmi note 9pro',
-    price: 500
-}
-phoneList.push(iphone);
-phoneList.push(xiaomi);
-
-let laptopList = []
-let asus = {
-    title: 'asus rog',
-    price: 2000
-}
-let acer = {
-    title: 'acer aspire 7',
-    price: 1200
-}
-laptopList.push(asus);
-laptopList.push(acer);
-
-let quantity = "quantity";
-acer[quantity] = 64;
-asus[quantity] = 48;
-iphone[quantity] = 182;
-xiaomi[quantity] = 96;
-
-
-let allItems = phoneList.concat(laptopList);
-console.log(allItems);
-
-let boughtItems = [];
-
-let itemsBlock = document.querySelector('.item__block');
-const LIST_ITEMS = document.createElement('ul');
-itemsBlock.appendChild(LIST_ITEMS)
-
-function showItems(list, nodeParent){
-   
-    for(let i=0; i<list.length; i++){
-
-        const TITLE = document.createElement('li');
-        TITLE.textContent = `Title: ${list[i].title}`;
-
-        const PRICE = document.createElement('li');
-        PRICE.textContent = `Price: ${list[i].price}`;
-        PRICE.className = "mt-2"
-
-        const QUANTITY = document.createElement('li');
-        QUANTITY.className = "mt-2 mb-3"
-        QUANTITY.textContent = `Quantity: ${list[i].quantity}`;
-
-        nodeParent.appendChild(TITLE);
-        nodeParent.appendChild(PRICE);
-        nodeParent.appendChild(QUANTITY);
+let phoneList = [
+    {
+        type: 'phone',
+        title:'Apple iPhone 13',
+        subtitle: 'Pro 128GB Silver',
+        price: 594990,
+        img: './images/phone1.png',
+    },
+    {
+        type: 'phone',
+        title:'Apple iPhone 11',
+        subtitle: '64GB Black Slim Box',
+        price: 299990,
+        img: './images/phone2.png',
+    },
+    {
+        type: 'phone',
+        title:'Apple iPhone SE',
+        subtitle: '64GB 2020 Black',
+        price: 269990,
+        img: './images/phone3.png',
     }
-    
+    ,{
+        type: 'phone',
+        title:'Xiaomi Redmi 9A',
+        subtitle: '32GB Sky Blue',
+        price: 594990,
+        img: './images/phone4.png',
+    },
+    {
+        type: 'phone',
+        title:'Samsung Galaxy A52',
+        subtitle: '128GB Awesome Black',
+        price: 169890,
+        img: './images/phone5.png',
+    }
+]
+let laptopList = [
+    {
+        type: 'laptop',
+        title:'Apple MacBook Pro 14',
+        subtitle: 'M1 Pro/16GB/512GB SSD',
+        price: 1180990,
+        img: './images/laptop1.png',
+    },
+    {
+        type: 'laptop',
+        title:'Lenovo V14 IGL',
+        subtitle: '82C2000YRU',
+        price: 153090,
+        img: './images/laptop2.png',
+    },
+    {
+        type: 'laptop',
+        title:'Asus TUF Gaming',
+        subtitle: 'F15 FX506LH I5165SGN ',
+        price: 450690,
+        img: './images/laptop3.png',
+    }
+    ,{
+        type: 'laptop',
+        title:'Acer Aspire 3',
+        subtitle: 'A315-34 C41TUN',
+        price: 154690,
+        img: './images/laptop4.png',
+    },
+    {
+        type: 'laptop',
+        title:'Acer Nitro 5',
+        subtitle: 'AN515-55',
+        price: 489990,
+        img: './images/laptop5.png',
+    }
+]
 
-}
+let techList = [
+    {
+        type: 'phone',
+        title:'Apple iPhone 13',
+        subtitle: 'Pro 128GB Silver',
+        price: 594990,
+        img: './images/phone1.png',
+    },
+    {
+        type: 'phone',
+        title:'Apple iPhone 11',
+        subtitle: '64GB Black Slim Box',
+        price: 299990,
+        img: './images/phone2.png',
+    },
+    {
+        type: 'phone',
+        title:'Apple iPhone SE',
+        subtitle: '64GB 2020 Black',
+        price: 269990,
+        img: './images/phone3.png',
+    }
+    ,{
+        type: 'phone',
+        title:'Xiaomi Redmi 9A',
+        subtitle: '32GB Sky Blue',
+        price: 594990,
+        img: './images/phone4.png',
+    },
+    {
+        type: 'phone',
+        title:'Samsung Galaxy A52',
+        subtitle: '128GB Awesome Black',
+        price: 169890,
+        img: './images/phone5.png',
+    },
+    {
+        type: 'laptop',
+        title:'Apple MacBook Pro 14',
+        subtitle: 'M1 Pro/16GB/512GB SSD',
+        price: 1180990,
+        img: './images/laptop1.png',
+    },
+    {
+        type: 'laptop',
+        title:'Lenovo V14 IGL',
+        subtitle: '82C2000YRU',
+        price: 153090,
+        img: './images/laptop2.png',
+    },
+    {
+        type: 'laptop',
+        title:'Asus TUF Gaming',
+        subtitle: 'F15 FX506LH I5165SGN ',
+        price: 450690,
+        img: './images/laptop3.png',
+    }
+    ,{
+        type: 'laptop',
+        title:'Acer Aspire 3',
+        subtitle: 'A315-34 C41TUN',
+        price: 154690,
+        img: './images/laptop4.png',
+    },
+    {
+        type: 'laptop',
+        title:'Acer Nitro 5',
+        subtitle: 'AN515-55',
+        price: 489990,
+        img: './images/laptop5.png',
+    }
 
-let phoneBtn = document.getElementById('phones').addEventListener('click', ()=>{
-    showItems(phoneList, LIST_ITEMS);
-});
 
-let laptopBtn = document.getElementById('laptops').addEventListener('click', ()=>{
-    showItems(laptopList, LIST_ITEMS);
-});
-let showAll = document.getElementById('all').addEventListener('click', ()=>{
-    showItems(allItems, LIST_ITEMS);
-});
+]
 
 
 
-let saleForm = document.forms.sale_form;
-let saleItem = saleForm.item_name;
-let saleQuant = saleForm.item_quant;
 
 
-
-let saleBtn = document.querySelector('.sale-btn');
-saleBtn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    let abc = /[a-z]/i;
-    let num = /[0-9]/;
-    
-    if(abc.test(saleItem.value) && num.test(saleQuant.value)){
-        for(i in allItems){
-            if(allItems[i].title.includes(saleItem.value)){
-                let price = allItems[i].price * saleQuant.value;
-
-                if(cash >= price){
-                    cash = cash - price;
-                    console.log(cash)
-                    curCash.textContent = `your current cash: ${cash}`;
-                    
-                    let userItem = {
-                        title: allItems[i].title,
-                        quantity: saleQuant.value
-                    }
-                    boughtItems.push(userItem);
-                    let userItems = document.querySelector('.user__items');
-                    const USER_ITEMS = document.createElement('ul');
-                    userItems.appendChild(USER_ITEMS);
-                    showItems(boughtItems, USER_ITEMS);
-                
-                }else{
-                    alert(`У вас не доастаточно средств: текущий баланс равен: ${cash}`)
-                }
-            }
+let cards = document.getElementById('cards');
+function renderItems(arr){
+    if (arr.length === 0) {
+        console.log(cards.firstChild)
+        while (cards.firstChild) {
+            cards.removeChild(cards.lastChild);
         }
-    }else{
-        alert('Данные введены не корректно');
-        
+
     }
-    saleForm.reset();
+    for(let i = 0; i < arr.length; i++){
 
+        let shopCard = document.createElement('div');
+        let shopCardImg = document.createElement('img');
+        let shopCardBody = document.createElement('div');
+        let shopCardTitle = document.createElement('h5');
+        let shopCardSubTitle = document.createElement('p');
+        let shopCardPrice = document.createElement('p');
+        let shopCardFooter = document.createElement('div');
+        let shopCardPrimBtn = document.createElement('button');
+        let shopCardSucBtn = document.createElement('button');
+    
+        shopCard.className = "card mb-5";
+        shopCard.style.width = "18rem";
+    
+        shopCardImg.className = "card-img-top card-img";
+    
+        shopCardBody.className = "card-body";
+    
+        shopCardTitle.className = "card-title";
+    
+        shopCardSubTitle.className = "card-text";
+    
+        shopCardPrice.className = "card-text";
+    
+        shopCardFooter.className = "card-footer";
+    
+        shopCardSucBtn.className = "btn btn-success mx-1";
+        shopCardSucBtn.textContent = 'Купить';
+    
+        shopCardPrimBtn.className = "btn btn-primary mx-1";
+        shopCardPrimBtn.textContent = 'В корзину';
+        
+        shopCardFooter.appendChild(shopCardPrimBtn);
+        shopCardFooter.appendChild(shopCardSucBtn);
+    
+        shopCardBody.appendChild(shopCardTitle);
+        shopCardBody.appendChild(shopCardSubTitle);
+        shopCardBody.appendChild(shopCardPrice);
+    
+        shopCardTitle.textContent = arr[i].title;
+        shopCardSubTitle.textContent = arr[i].subtitle;
+        shopCardPrice.textContent = `${arr[i].price} тг`;
+    
+        shopCard.appendChild(shopCardImg);
+        shopCard.appendChild(shopCardBody);
+        shopCard.appendChild(shopCardFooter);
+    
+        shopCardImg.src = arr[i].img;
+        
+        cards.appendChild(shopCard)
+    
+    }
+
+}
+
+let searchBtn = document.getElementById('search-submit');
+let searchInput = document.getElementById('search-input');
+searchBtn.addEventListener('click',()=>{
+    console.log('searchBtn', searchInput.value)
+    if(searchInput.value == 'laptop'){
+        renderItems([])
+        renderItems(laptopList);
+    }
+    else if(searchInput.value == 'phone'){
+        renderItems([])
+        renderItems(phoneList);
+    }
+    else{
+        renderItems([])
+        renderItems(techList);
+    }
 })
-
-
 

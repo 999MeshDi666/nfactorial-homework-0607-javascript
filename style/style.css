@@ -10,11 +10,10 @@ ul,li{
     padding: 0;
     margin: 0;
 }
+.card-img{
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
 
-.nav__link{
-    margin: 15px 0;
-    cursor: pointer;
-}
-.nav__link:hover{
-    color: rgba(255, 255, 255, 0.67);
-}
+
