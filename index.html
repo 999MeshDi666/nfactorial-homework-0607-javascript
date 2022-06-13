@@ -17,13 +17,34 @@
         <div class="cashInput d-flex">
           <input type="text" class="form-control w-25" placeholder="пополнить баланс" id="balance-input" >
           <button class="btn btn-success ms-3" id="balance-submit">Пополнить</button>
+          <button type="button" class="btn btn-primary mx-2" id="show-bought" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Купленные предметы
+          </button>
+
+          <div class="modal fade text-black" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Мои товары</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bought-list">
+                 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="consumer-goods text-black">
         <div class="mb-5">
           <h1 class="text-white">Техника</h1>
           <div class="serachInput d-flex">
-            <input type="text" class="form-control w-25" placeholder="поиск нужной техники" id="search-input" >
+            <input type="text" class="form-control w-25" placeholder="поиск phone или laptop" id="search-input" >
             <button class="btn btn-success ms-3" id="search-submit">Поиск</button>
             <button class="btn btn-success ms-3" id="show-submit">Показать все товары</button>
           </div>
@@ -36,6 +57,7 @@
         </div>
 
     </div>
+   
 
     <script src="./js/main.js"></script>
 

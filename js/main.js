@@ -161,8 +161,7 @@ let techList = [
 
 ]
 
-
-
+let boughtList = [];
 
 
 let cards = document.getElementById('cards');
@@ -236,16 +235,17 @@ function renderItems(arr){
             if(cash >= arr[e.value].price){
                 cash = cash - arr[e.value].price;
                 curBalance.innerHTML = cash;
-                alert('Оплата прошла успешно')
+                alert('Оплата прошла успешно');
+                boughtList.push(arr[e.value].title);
+                console.log(boughtList);
+                
             }else{
                 alert('У вас не достаточно средств на балансе')
             }
+           
             
-            
-
         })
     })
-
 
 }
 
@@ -269,4 +269,10 @@ searchBtn.addEventListener('click',()=>{
     }
 })
 
+let showBoughtItems = document.getElementById('show-bought');
+let boughtItems = document.querySelector('.bought-list');
+showBoughtItems.addEventListener('click', ()=>{
+    boughtItems.textContent = `${boughtList}`;
+
+})
 
